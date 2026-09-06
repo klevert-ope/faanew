@@ -2,17 +2,47 @@
 import "../styles/global.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import { site } from "../content/site";
+import {
+  absoluteUrl,
+  buildStructuredData,
+  canonicalPath,
+  formatPageTitle,
+  type SeoPageType,
+} from "../lib/seo";
 
 interface Props {
   title: string;
   description?: string;
+  image?: string;
+  noindex?: boolean;
+  ogType?: "website" | "article";
+  pageType?: SeoPageType;
 }
 
 const {
   title,
-  description = "Fleet and industrial solutions for organisations across East, Central, and Southern Africa.",
+  description = site.defaultDescription,
+  image = site.defaultImage,
+  noindex = false,
+  ogType = "website",
+  pageType = "WebPage",
 } = Astro.props;
-const pageTitle = title.includes("Fleet Associates") ? title : `${title} · Fleet Associates Africa`;
+
+const pageTitle = formatPageTitle(title);
+const siteOrigin = Astro.site?.href ?? `${site.url}/`;
+const pathname = canonicalPath(Astro.url.pathname);
+const canonical = absoluteUrl(pathname, siteOrigin);
+const ogImage = absoluteUrl(image, siteOrigin);
+const robots = noindex ? "noindex, nofollow" : "index, follow";
+const structuredData = buildStructuredData({
+  title: pageTitle,
+  description,
+  canonical,
+  pathname,
+  image: ogImage,
+  pageType,
+});
 ---
 
 <!doctype html>
@@ -20,9 +50,34 @@ const pageTitle = title.includes("Fleet Associates") ? title : `${title} · Flee
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={description} />
     <title>{pageTitle}</title>
-    <link rel="icon" href="/images/Company%20Logo.png" />
+    <meta name="description" content={description} />
+    <meta name="robots" content={robots} />
+    <meta name="author" content={site.legalName} />
+    <meta name="theme-color" content={site.themeColor} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/png" href={site.logo} />
+    <link rel="apple-touch-icon" href={site.logo} />
+
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:locale" content={site.locale} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:alt" content={pageTitle} />
+    <meta property="og:image:width" content={String(site.defaultImageWidth)} />
+    <meta property="og:image:height" content={String(site.defaultImageHeight)} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content={pageTitle} />
+
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(structuredData)} />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
