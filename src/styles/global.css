@@ -820,9 +820,11 @@ p:last-child {
 
   .nav {
     display: none;
-    position: absolute;
-    inset: 4.5rem 0 auto;
-    z-index: 50;
+    position: fixed;
+    top: 4.5rem;
+    left: 0;
+    right: 0;
+    z-index: 60;
     padding: 1rem 1.25rem 1.5rem;
     background: var(--paper);
     border-bottom: 1px solid var(--line);
