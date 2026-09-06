@@ -1,7 +1,8 @@
 ---
 import Base from "../layouts/Base.astro";
 import CtaBand from "../components/CtaBand.astro";
-import { engagementModels, partnershipTypes, partners } from "../content/site";
+import PartnerLogos from "../components/PartnerLogos.astro";
+import { engagementModels, partnershipTypes } from "../content/site";
 ---
 
 <Base
@@ -67,11 +68,7 @@ import { engagementModels, partnershipTypes, partners } from "../content/site";
     <div class="wrap">
       <span class="eyebrow">Alongside</span>
       <h2>Organisations we work with</h2>
-    </div>
-    <div class="logo-marquee" style="margin-top: 2rem">
-      <div class="logo-track">
-        {[...partners, ...partners].map((partner) => <img src={partner.src} alt={partner.alt} />)}
-      </div>
+      <PartnerLogos />
     </div>
   </section>
 

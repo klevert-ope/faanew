@@ -1,7 +1,8 @@
 ---
 import Base from "../layouts/Base.astro";
 import CtaBand from "../components/CtaBand.astro";
-import { metrics, partners, site } from "../content/site";
+import PartnerLogos from "../components/PartnerLogos.astro";
+import { metrics, site } from "../content/site";
 ---
 
 <Base
@@ -146,11 +147,7 @@ import { metrics, partners, site } from "../content/site";
       <p class="lead" style="max-width: 38rem; margin: 1rem 0 2.5rem">
         Transport, manufacturing, conservation, and utilities. The work is operational. The names are the proof.
       </p>
-    </div>
-    <div class="logo-marquee">
-      <div class="logo-track">
-        {[...partners, ...partners].map((partner) => <img src={partner.src} alt={partner.alt} />)}
-      </div>
+      <PartnerLogos />
     </div>
   </section>
 
