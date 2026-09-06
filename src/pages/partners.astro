@@ -1,0 +1,79 @@
+---
+import Base from "../layouts/Base.astro";
+import CtaBand from "../components/CtaBand.astro";
+import { engagementModels, partnershipTypes, partners } from "../content/site";
+---
+
+<Base
+  title="Partners"
+  description="Engagement models and partnership structures for fleet and industrial programmes across Africa."
+>
+  <section class="page-hero">
+    <div class="wrap split split--start">
+      <div>
+        <span class="eyebrow">Partners and pricing</span>
+        <h1>Structures that fit the work, not a catalogue price.</h1>
+      </div>
+      <p class="lead">
+        Every plan is assessed on the operation in front of us. Subscription, alliance, or performance. The commercial
+        shape follows the job.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--paper-2">
+    <div class="wrap">
+      <span class="eyebrow">Commercial models</span>
+      <h2>How clients typically engage</h2>
+      <div class="grid-3" style="margin-top: 2.5rem">
+        {
+          engagementModels.map((model) => (
+            <article class="card">
+              <h3>{model.title}</h3>
+              <p>{model.body}</p>
+              <ul class="list">
+                {model.points.map((point) => (
+                  <li>{point}</li>
+                ))}
+              </ul>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <span class="eyebrow">Alliances</span>
+      <h2>Partnership forms we work inside</h2>
+      <div class="grid-2" style="margin-top: 2.5rem">
+        {
+          partnershipTypes.map((item) => (
+            <article class="card">
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+              <p class="muted">
+                <em>{item.example}</em>
+              </p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight section--paper-2">
+    <div class="wrap">
+      <span class="eyebrow">Alongside</span>
+      <h2>Organisations we work with</h2>
+    </div>
+    <div class="logo-marquee" style="margin-top: 2rem">
+      <div class="logo-track">
+        {[...partners, ...partners].map((partner) => <img src={partner.src} alt={partner.alt} />)}
+      </div>
+    </div>
+  </section>
+
+  <CtaBand title="Discuss a partnership" body="Tell us the structure you have in mind. We will say if it fits." />
+</Base>

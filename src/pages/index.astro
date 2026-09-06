@@ -1,0 +1,158 @@
+---
+import Base from "../layouts/Base.astro";
+import CtaBand from "../components/CtaBand.astro";
+import { metrics, partners, site } from "../content/site";
+---
+
+<Base
+  title={site.legalName}
+  description="Technology-led fleet and industrial solutions that raise efficiency, cut cost, and build capability across Africa."
+>
+  <section class="hero">
+    <div class="hero-media">
+      <img src="/images/hero-feature.jpg" alt="Fleet operations across East Africa" />
+    </div>
+    <div class="wrap hero-copy">
+      <span class="eyebrow" style="color: var(--brass)">Since 2015 · {site.region}</span>
+      <h1>Fleet innovation and industrial solutions for Africa’s growth.</h1>
+      <p class="lead">
+        We help corporates, government agencies, and NGOs run safer fleets, tighter workshops, and plants that stay up.
+        Consultancy, project delivery, and training. One operating partner.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn--on-dark" href="/contact">Book a consultation</a>
+        <a class="btn btn--ghost-on-dark" href="/services">See the work</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap grid-3">
+      {
+        metrics.map((metric) => (
+          <div class="metric">
+            <div class="metric-value">{metric.value}</div>
+            <p class="metric-label">{metric.label}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section section--paper-2">
+    <div class="wrap split">
+      <div>
+        <span class="eyebrow">The firm</span>
+        <h2>Smart fleets. Smarter operations. Sustainable growth.</h2>
+      </div>
+      <div>
+        <p class="lead">
+          Founded by engineers in 2015, Fleet Associates Africa delivers technology-driven fleet and industrial systems
+          that raise efficiency, cut cost, and keep assets compliant.
+        </p>
+        <p class="muted">
+          Two divisions. Fleet management and industrial management. Both sit on consultancy, project management, and
+          capacity building. We equip the organisation, then leave the capability in place.
+        </p>
+      </div>
+    </div>
+    <div class="wrap grid-2" style="margin-top: 3rem">
+      <figure class="media-frame">
+        <img src="/images/trucks.jpg" alt="Long-haul trucks in operation" />
+        <figcaption class="media-caption">Fleet systems, workshops, and driver capability</figcaption>
+      </figure>
+      <figure class="media-frame">
+        <img src="/images/garage.jpg" alt="Maintenance workshop" />
+        <figcaption class="media-caption">Plant reliability, safety, and industrial uptime</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <span class="eyebrow">Divisions</span>
+      <h2>Two practices. One standard of delivery.</h2>
+      <div class="grid-2" style="margin-top: 2.5rem">
+        <article class="card">
+          <h3>Fleet solutions</h3>
+          <p>
+            Transformation programmes, telematics, fuel and tyre control, workshop design, and the training that makes
+            the system hold.
+          </p>
+          <p><a href="/fleet-solutions">Explore fleet work</a></p>
+        </article>
+        <article class="card">
+          <h3>Industrial solutions</h3>
+          <p>
+            Facilities, manufacturing systems, maintenance strategy, spare-parts discipline, and industrial safety for
+            plants that cannot afford downtime.
+          </p>
+          <p><a href="/industrial-solutions">Explore industrial work</a></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--navy">
+    <div class="wrap">
+      <span class="eyebrow" style="color: var(--brass)">Method</span>
+      <h2>How an engagement actually runs</h2>
+      <div class="steps" style="margin-top: 2.5rem">
+        <div class="step">
+          <h3>Assess</h3>
+          <p class="muted">Operations, cost, risk, and the gap between policy and the yard.</p>
+        </div>
+        <div class="step">
+          <h3>Design</h3>
+          <p class="muted">Systems, SOPs, and the smallest change that moves the metric.</p>
+        </div>
+        <div class="step">
+          <h3>Implement</h3>
+          <p class="muted">Workshops, software, hardware, and the people who will run them.</p>
+        </div>
+        <div class="step">
+          <h3>Build skill</h3>
+          <p class="muted">Managers, technicians, and drivers trained against the new system.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <span class="eyebrow">Why organisations stay</span>
+      <h2>Technical depth, regional range, measurable operations.</h2>
+      <div class="grid-3" style="margin-top: 2.5rem">
+        <article class="card">
+          <h3>Coverage</h3>
+          <p>Fleet operations and industrial management as one brief, not two vendors.</p>
+        </article>
+        <article class="card">
+          <h3>Leadership</h3>
+          <p>Transport, logistics, and plant engineering across Eastern, Central, and upper Southern Africa.</p>
+        </article>
+        <article class="card">
+          <h3>End to end</h3>
+          <p>From telematics and driver training to industrial audits, safety systems, and plant maintenance.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight section--paper-2">
+    <div class="wrap">
+      <span class="eyebrow">Trusted alongside</span>
+      <h2>Partners across the region</h2>
+      <p class="lead" style="max-width: 38rem; margin: 1rem 0 2.5rem">
+        Transport, manufacturing, conservation, and utilities. The work is operational. The names are the proof.
+      </p>
+    </div>
+    <div class="logo-marquee">
+      <div class="logo-track">
+        {[...partners, ...partners].map((partner) => <img src={partner.src} alt={partner.alt} />)}
+      </div>
+    </div>
+  </section>
+
+  <CtaBand />
+</Base>

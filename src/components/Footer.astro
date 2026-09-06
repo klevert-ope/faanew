@@ -1,0 +1,40 @@
+---
+import { footerSolutions, site } from "../content/site";
+---
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <a class="footer-brand" href="/">
+        <img src="/images/Company%20Logo.png" alt="" width="38" height="38" />
+        <strong>{site.name}</strong>
+      </a>
+      <p>
+        Founded in {site.founded} by engineers. Integrated fleet and industrial solutions across transport,
+        manufacturing, and utilities.
+      </p>
+    </div>
+    <div>
+      <h3>Solutions</h3>
+      <div class="footer-links" style="margin-top: 1rem">
+        {footerSolutions.map((item) => <a href={item.href}>{item.label}</a>)}
+      </div>
+    </div>
+    <div>
+      <h3>Reach us</h3>
+      <div class="footer-links" style="margin-top: 1rem">
+        {site.phones.map((phone) => <a href={phone.href}>{phone.label}</a>)}
+        <a href={`mailto:${site.email}`}>{site.email}</a>
+        <p>{site.address}</p>
+        <p>{site.poBox}</p>
+      </div>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <p>© {new Date().getFullYear()} {site.legalName}</p>
+    <div style="display:flex;gap:1.25rem">
+      <a href="/terms-and-conditions">Terms</a>
+      <a href="/privacy-policy">Privacy</a>
+    </div>
+  </div>
+</footer>
