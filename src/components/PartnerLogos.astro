@@ -1,0 +1,14 @@
+---
+import { partners } from "../content/site";
+---
+
+<ul class="logo-grid">
+  {
+    partners.map((partner) => (
+      <li class="logo-cell">
+        <img src={partner.src} alt="" />
+        <span>{partner.alt}</span>
+      </li>
+    ))
+  }
+</ul>
