@@ -1,0 +1,128 @@
+---
+import Base from "../layouts/Base.astro";
+import CtaBand from "../components/CtaBand.astro";
+import { leadership, specialists, values } from "../content/site";
+---
+
+<Base
+  title="About"
+  description="Founded in 2015 by engineers, Fleet Associates Africa delivers fleet and industrial systems across East, Central, and Southern Africa."
+>
+  <section class="page-hero">
+    <div class="wrap split split--start">
+      <div>
+        <span class="eyebrow">The practice</span>
+        <h1>Built by engineers. Run for operators.</h1>
+      </div>
+      <div>
+        <p class="lead">
+          Founded in 2015, we deliver integrated solutions across transport, manufacturing, and utilities. Fleet
+          management and industrial management sit as sister practices.
+        </p>
+        <p class="muted">
+          Technology-driven systems, asset management, compliance, and sustainable operations. We equip organisations
+          with the tools, insight, and people to keep the work moving.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <figure class="media-frame media-frame--wide">
+        <img src="/images/team/team-featured.jpg" alt="Fleet Associates Africa team" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section section--paper-2">
+    <div class="wrap split split--start">
+      <div>
+        <span class="eyebrow">Vision</span>
+        <h2>Africa’s partner in sustainable fleet and industrial performance.</h2>
+      </div>
+      <p class="lead">
+        Innovation, efficiency, and green growth for businesses and the communities that depend on them.
+      </p>
+    </div>
+    <div class="wrap split split--start" style="margin-top: 4rem">
+      <div>
+        <span class="eyebrow">Mission</span>
+        <h2>Optimise fleets. Power industrial growth.</h2>
+      </div>
+      <p class="lead">
+        Smart technologies, engineering judgement, and sustainable practice. We reduce cost, raise safety, and lift
+        productivity while Africa moves toward cleaner mobility and more resilient industry.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <span class="eyebrow">Values</span>
+      <h2>What we will not trade away</h2>
+      <div class="grid-3" style="margin-top: 2.5rem">
+        {
+          values.map((value) => (
+            <article class="card">
+              <h3>{value.title}</h3>
+              <p>{value.body}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--paper-2">
+    <div class="wrap">
+      <span class="eyebrow">Leadership</span>
+      <h2>The people who hold the work</h2>
+      <div class="team-grid" style="margin-top: 2.5rem">
+        {
+          leadership.map((person) => (
+            <article class="team-card">
+              <div class="team-card-inner">
+                <div class="team-head">
+                  <img src={person.image} alt={person.name} />
+                  <div>
+                    <h3>{person.name}</h3>
+                    <p class="role">{person.role}</p>
+                  </div>
+                </div>
+                <p>{person.summary}</p>
+                <p class="muted">{person.detail}</p>
+                {person.linkedin && (
+                  <p style="margin-top: 1rem">
+                    <a href={person.linkedin}>LinkedIn</a>
+                  </p>
+                )}
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <span class="eyebrow">Specialists</span>
+      <h2>A bench that covers the yard and the plant</h2>
+      <div class="specialists" style="margin-top: 2rem">
+        {
+          specialists.map((person) => (
+            <article class="specialist">
+              <h3>{person.name}</h3>
+              <p class="role">{person.profession}</p>
+              <p class="muted">{person.focus}</p>
+              <p>{person.experience}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <CtaBand />
+</Base>

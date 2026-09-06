@@ -1,0 +1,43 @@
+---
+import Base from "../layouts/Base.astro";
+import CtaBand from "../components/CtaBand.astro";
+import { projects } from "../content/site";
+---
+
+<Base
+  title="Work"
+  description="Selected fleet and industrial programmes delivered for governments, NGOs, and private operators across Africa."
+>
+  <section class="page-hero">
+    <div class="wrap split split--start">
+      <div>
+        <span class="eyebrow">Selected work</span>
+        <h1>Programmes for organisations that cannot pause.</h1>
+      </div>
+      <p class="lead">
+        High-impact delivery across Africa. Governments, NGOs, and private operators. The work is operational. The
+        result is a system people can run.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap project-grid">
+      {
+        projects.map((project) => (
+          <article class="project-card">
+            <img src={project.image} alt="" />
+            <div style="padding: 1.4rem 1.4rem 1.6rem">
+              <h3>{project.title}</h3>
+              <p class="muted" style="margin-top: 0.6rem">
+                {project.body}
+              </p>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <CtaBand title="Have a programme in mind?" />
+</Base>

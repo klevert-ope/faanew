@@ -1,0 +1,132 @@
+---
+import Base from "../layouts/Base.astro";
+import CtaBand from "../components/CtaBand.astro";
+---
+
+<Base
+  title="Services"
+  description="Consultancy, project management, and training for fleet and industrial operations across Africa."
+>
+  <section class="page-hero">
+    <div class="wrap split split--start">
+      <div>
+        <span class="eyebrow">Services</span>
+        <h1>Design the system. Deliver the project. Leave the skill behind.</h1>
+      </div>
+      <p class="lead">
+        We help organisations design, optimise, and run fleets and plants in complex operating environments. Engineering
+        judgement, digital systems, and professional training. Reliability, cost, safety, and sustainability.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--paper-2">
+    <div class="wrap split">
+      <figure class="media-frame">
+        <img src="/images/project_mgt.jpg" alt="Project delivery on site" />
+      </figure>
+      <div>
+        <span class="eyebrow">01</span>
+        <h2>Project management</h2>
+        <p class="lead">End-to-end implementation of fleet and industrial programmes.</p>
+        <ul class="list">
+          <li>
+            <strong>Fleet and workshop establishment</strong>
+            Management systems, tooling, and staffing for workshops that actually turn work.
+          </li>
+          <li>
+            <strong>Fuel and tyre control</strong>
+            Sensors, telematics integration, stores layout, and dashboards that stop leakage.
+          </li>
+          <li>
+            <strong>Transport digitisation</strong>
+            TMS, fleet maintenance software, and SAP S/4HANA modules where they earn their place.
+          </li>
+          <li>
+            <strong>Industrial facilities and green transport</strong>
+            Roads, water, buildings, solar workshop lighting, and EV charging.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split">
+      <div>
+        <span class="eyebrow">02</span>
+        <h2>Consultancy</h2>
+        <p class="lead">Efficiency, cost, and governance. Audits first. Then the framework.</p>
+        <ul class="list">
+          <li>
+            <strong>Fleet strategy and optimisation</strong>
+            Composition, utilisation, and the cost drivers that actually move the P&L.
+          </li>
+          <li>
+            <strong>Maintenance systems</strong>
+            Job cards, preventive schedules, inventory control, and workshop process.
+          </li>
+          <li>
+            <strong>Financial management</strong>
+            Lifecycle costing, budgets, and models operators can defend.
+          </li>
+          <li>
+            <strong>Policy and SOPs</strong>
+            Transport policy and operating standards written for the yard, not the shelf.
+          </li>
+        </ul>
+      </div>
+      <figure class="media-frame">
+        <img src="/images/fleet.png" alt="Fleet consultancy" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section section--paper-2" id="training">
+    <div class="wrap split">
+      <figure class="media-frame">
+        <img src="/images/training.png" alt="Technical training session" />
+      </figure>
+      <div>
+        <span class="eyebrow">03</span>
+        <h2>Training and capacity</h2>
+        <p class="lead">Competent, safety-conscious, data-literate teams.</p>
+        <ul class="list">
+          <li>
+            <strong>Drivers</strong>
+            Defensive and eco driving. Articulated, tipper, and plant operators.
+          </li>
+          <li>
+            <strong>Managers and technicians</strong>
+            Fleet supervision, industrial management, and maintenance skill.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <span class="eyebrow">Sectors</span>
+      <h2>Where the work usually sits</h2>
+      <div class="grid-3" style="margin-top: 2rem">
+        {
+          [
+            "Logistics and transport",
+            "Government and public fleets",
+            "Conservation organisations",
+            "Development programmes",
+            "Construction",
+            "Agriculture",
+          ].map((item) => (
+            <article class="card">
+              <h3>{item}</h3>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <CtaBand />
+</Base>
