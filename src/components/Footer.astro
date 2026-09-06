@@ -1,5 +1,6 @@
 ---
 import { footerSolutions, site } from "../content/site";
+import Icon from "./Icon.astro";
 ---
 
 <footer class="site-footer">
@@ -22,9 +23,17 @@ import { footerSolutions, site } from "../content/site";
     </div>
     <div>
       <h3>Reach us</h3>
-      <div class="footer-links" style="margin-top: 1rem">
-        {site.phones.map((phone) => <a href={phone.href}>{phone.label}</a>)}
-        <a href={`mailto:${site.email}`}>{site.email}</a>
+      <div class="footer-links footer-reach" style="margin-top: 1rem">
+        {site.phones.map((phone) => (
+          <a href={phone.href}>
+            <Icon name="phone" />
+            {phone.label}
+          </a>
+        ))}
+        <a href={`mailto:${site.email}`}>
+          <Icon name="mail" />
+          {site.email}
+        </a>
         <p>{site.address}</p>
         <p>{site.poBox}</p>
       </div>
