@@ -25,25 +25,39 @@ export const site = {
     "Fleet and industrial solutions for organisations across East, Central, and Southern Africa.",
 } as const;
 
-export type NavItem = {
+export type NavIcon =
+  | "work"
+  | "services"
+  | "fleet"
+  | "industrial"
+  | "about"
+  | "partners"
+  | "contact";
+
+export type NavLink = {
   href: string;
   label: string;
-  children?: { href: string; label: string }[];
+  icon: NavIcon;
+};
+
+export type NavItem = NavLink & {
+  children?: NavLink[];
 };
 
 export const primaryNav: NavItem[] = [
-  { href: "/work", label: "Work" },
+  { href: "/work", label: "Work", icon: "work" },
   {
     href: "/services",
     label: "Services",
+    icon: "services",
     children: [
-      { href: "/fleet-solutions", label: "Fleet solutions" },
-      { href: "/industrial-solutions", label: "Industrial solutions" },
+      { href: "/fleet-solutions", label: "Fleet solutions", icon: "fleet" },
+      { href: "/industrial-solutions", label: "Industrial solutions", icon: "industrial" },
     ],
   },
-  { href: "/about", label: "About" },
-  { href: "/partners", label: "Partners" },
-  { href: "/contact", label: "Contact" },
+  { href: "/about", label: "About", icon: "about" },
+  { href: "/partners", label: "Partners", icon: "partners" },
+  { href: "/contact", label: "Contact", icon: "contact" },
 ];
 
 export const footerSolutions = [

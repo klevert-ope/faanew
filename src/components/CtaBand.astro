@@ -1,4 +1,6 @@
 ---
+import Icon from "./Icon.astro";
+
 interface Props {
   eyebrow?: string;
   title?: string;
@@ -20,8 +22,14 @@ const {
       <p class="lead" style="margin-top: 1rem; max-width: 34rem">{body}</p>
     </div>
     <div style="display:flex;flex-wrap:wrap;gap:0.75rem">
-      <a class="btn btn--on-dark" href="/contact">Book a consultation</a>
-      <a class="btn btn--ghost-on-dark" href="tel:+254728764014">Call +254 728 764 014</a>
+      <a class="btn btn--on-dark" href="/contact">
+        <Icon name="consult" />
+        Book a consultation
+      </a>
+      <a class="btn btn--ghost-on-dark" href="tel:+254728764014">
+        <Icon name="phone" />
+        Call +254 728 764 014
+      </a>
     </div>
   </div>
 </section>
