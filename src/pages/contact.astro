@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Icon from "../components/Icon.astro";
 import { site } from "../content/site";
 ---
 
@@ -20,11 +21,19 @@ import { site } from "../content/site";
       <div>
         <div class="contact-detail">
           <span>Call</span>
-          {site.phones.map((phone) => <a href={phone.href}>{phone.label}</a>)}
+          {site.phones.map((phone) => (
+            <a href={phone.href}>
+              <Icon name="phone" />
+              {phone.label}
+            </a>
+          ))}
         </div>
         <div class="contact-detail">
           <span>Email</span>
-          <a href={`mailto:${site.email}`}>{site.email}</a>
+          <a href={`mailto:${site.email}`}>
+            <Icon name="mail" />
+            {site.email}
+          </a>
         </div>
         <div class="contact-detail">
           <span>Studio</span>
