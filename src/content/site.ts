@@ -1,6 +1,7 @@
 export const site = {
   name: "Fleet Associates Africa",
   legalName: "Fleet Associates Africa Ltd",
+  url: "https://faaafrica.com",
   founded: 2015,
   email: "info@faaafrica.com",
   phones: [
@@ -8,8 +9,20 @@ export const site = {
     { label: "0714 606 541", href: "tel:+254714606541" },
   ],
   address: "New Hurlingum Estate, Off Kangundo Road, Florida Court, Nairobi",
+  streetAddress: "Florida Court, New Hurlingum Estate, Off Kangundo Road",
+  locality: "Nairobi",
+  country: "KE",
+  postalCode: "00521",
   poBox: "P.O. Box 772–00521 Embakasi, Nairobi, Kenya",
   region: "East, Central, and Southern Africa",
+  logo: "/images/Company%20Logo.png",
+  defaultImage: "/images/hero-feature.jpg",
+  defaultImageWidth: 1371,
+  defaultImageHeight: 768,
+  locale: "en_KE",
+  themeColor: "#122033",
+  defaultDescription:
+    "Fleet and industrial solutions for organisations across East, Central, and Southern Africa.",
 } as const;
 
 export type NavItem = {
